@@ -5,10 +5,6 @@ public class InterfaceGenerator extends Generator {
     super($package, "public interface %s".formatted($name));
   }
 
-  public void addField(String field) {
-    add(1, field);
-  }
-
   public void addMethod(String signature) {
     add(1, signature + ";");
   }
