@@ -2,7 +2,7 @@ package nekogochan.sourcegenerator;
 
 public class InterfaceGenerator extends Generator {
   public InterfaceGenerator(String $package, String $name) {
-    super($package, "public interface %s".formatted($name));
+    super($package, "public interface", $name);
   }
 
   public void addMethod(String signature) {
