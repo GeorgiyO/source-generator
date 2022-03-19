@@ -59,4 +59,21 @@ class ClassGeneratorTest {
       gen.get()
     );
   }
+
+  @Test
+  void addTemplate() {
+    var gen = new ClassGenerator("test", "Test");
+    gen.addClassTemplate("T");
+    gen.addClassTemplate("R");
+    assertEquals(
+      """
+      package test;
+      
+      public class Test<T, R> {
+      
+      }
+      """,
+      gen.get()
+    );
+  }
 }

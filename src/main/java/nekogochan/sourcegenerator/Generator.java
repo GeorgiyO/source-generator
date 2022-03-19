@@ -20,6 +20,7 @@ public abstract class Generator {
   protected String signature;
   protected final StringJoiner imports = new StringJoiner("\n");
   protected final StringJoiner classCode = new StringJoiner("\n");
+  protected StringJoiner templates = new StringJoiner(", ", "<", ">");
 
   protected Generator(String $package, String signature, String name) {
     this.$package = $package;
@@ -33,11 +34,15 @@ public abstract class Generator {
       result += imports + "\n\n";
     }
     result += """
-              %s %s {
+              %s %s%s {
               %s
               }
-              """.formatted(signature, name, classCode);
+              """.formatted(signature, name, templates, classCode);
     return result;
+  }
+
+  public void addClassTemplate(String template) {
+    templates.add(template);
   }
 
   public void writeLocal() throws IOException {
