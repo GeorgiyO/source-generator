@@ -12,23 +12,22 @@ public abstract class Generator {
   protected static final int BASE_OFFSET = 2;
 
   protected final String $package;
-  protected final StringJoiner classCode;
+  protected String signature;
+  protected final StringJoiner classCode = new StringJoiner("\n");
 
-  protected Generator(String $package, String $signature) {
+  protected Generator(String $package, String signature) {
     this.$package = $package;
-    this.classCode = new StringJoiner(
-      "\n",
-      """
-        package %s;
-              
-        %s {
-        """.formatted($package, $signature),
-      "}"
-    );
+    this.signature = signature;
   }
 
   public String get() {
-    return classCode.toString();
+    return """
+           package %s;
+                 
+           %s {
+           %s
+           }
+           """.formatted($package, signature, classCode.toString());
   }
 
   public void writeLocal() throws IOException {
@@ -44,7 +43,7 @@ public abstract class Generator {
   }
 
   protected void addField(String field) {
-    add(1, field);
+    add(1, field + ";");
   }
 
   protected void addMethod(String signature, String body) {
@@ -52,6 +51,10 @@ public abstract class Generator {
     Arrays.stream(body.split("\n"))
           .forEach(row -> add(2, row));
     add(1, "}");
+  }
+
+  public void addEmptyLine() {
+    add(0, "");
   }
 
   protected void add(int offset, String code) {

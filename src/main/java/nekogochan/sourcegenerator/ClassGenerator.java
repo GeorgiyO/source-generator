@@ -1,6 +1,9 @@
 package nekogochan.sourcegenerator;
 
 public class ClassGenerator extends Generator {
+
+  private boolean notAbstract = true;
+
   public ClassGenerator(String $package, String $name) {
     super($package, "public class %s".formatted($name));
   }
@@ -16,6 +19,10 @@ public class ClassGenerator extends Generator {
   }
 
   public void addAbstractMethod(String signature) {
-    super.add(1, "abstract " + signature);
+    if (notAbstract) {
+      super.signature = "abstract " + super.signature;
+    }
+    notAbstract = false;
+    super.add(1, "abstract " + signature + ";");
   }
 }
