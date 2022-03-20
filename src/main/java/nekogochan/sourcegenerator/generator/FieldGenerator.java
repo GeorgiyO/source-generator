@@ -7,6 +7,7 @@ import java.util.StringJoiner;
 
 import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.joining;
+import static nekogochan.sourcegenerator.tip.common.Modifier.ABSTRACT;
 import static nekogochan.sourcegenerator.tip.common.Modifier.STRICTFP;
 import static nekogochan.sourcegenerator.tip.common.Modifier.TRANSIENT;
 import static nekogochan.sourcegenerator.tip.common.Modifier.VOLATILE;

@@ -57,10 +57,6 @@ public abstract class AbstractGenerator<It extends AbstractGenerator<It>> {
     return visibility(PUBLIC);
   }
 
-  public It $abstract() {
-    return modifier(ABSTRACT);
-  }
-
   public It $static() {
     return modifier(STATIC);
   }
