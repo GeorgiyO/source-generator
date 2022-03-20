@@ -3,7 +3,6 @@ package nekogochan.sourcegenerator;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.StringJoiner;
 
@@ -11,6 +10,7 @@ import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
 import static java.nio.file.StandardOpenOption.WRITE;
 
+@Deprecated
 public abstract class Generator {
 
   protected static final int BASE_OFFSET = 2;

@@ -1,5 +1,6 @@
 package nekogochan.sourcegenerator;
 
+@Deprecated
 public class InterfaceGenerator extends Generator {
   public InterfaceGenerator(String $package, String $name) {
     super($package, "public interface", $name);

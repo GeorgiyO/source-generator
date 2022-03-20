@@ -1,5 +1,6 @@
 package nekogochan.sourcegenerator;
 
+@Deprecated
 public class ClassGenerator extends Generator {
 
   private boolean notAbstract = true;
