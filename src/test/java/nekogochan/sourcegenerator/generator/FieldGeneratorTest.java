@@ -1,16 +1,13 @@
 package nekogochan.sourcegenerator.generator;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-import org.junit.jupiter.params.ParameterizedTest;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.function.UnaryOperator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FieldGeneratorTest {
 

@@ -3,11 +3,12 @@ package nekogochan.sourcegenerator.generator;
 import nekogochan.sourcegenerator.tip.common.Modifier;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.StringJoiner;
 
 import static java.util.Comparator.comparingInt;
+import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.joining;
-import static nekogochan.sourcegenerator.tip.common.Modifier.ABSTRACT;
 import static nekogochan.sourcegenerator.tip.common.Modifier.STRICTFP;
 import static nekogochan.sourcegenerator.tip.common.Modifier.TRANSIENT;
 import static nekogochan.sourcegenerator.tip.common.Modifier.VOLATILE;
@@ -19,6 +20,8 @@ public class FieldGenerator extends AbstractGenerator<FieldGenerator> {
 
   @Override
   public String generate() {
+    requireNonNull(type);
+    requireNonNull(name);
     var field = new StringJoiner(" ", "", ";");
     if (visibility != null) {
       field.add(visibility.getValue());
