@@ -3,7 +3,6 @@ package nekogochan.sourcegenerator.generator;
 import nekogochan.sourcegenerator.tip.common.Modifier;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Objects;
 import java.util.StringJoiner;
 
 import static java.util.Comparator.comparingInt;
@@ -46,15 +45,15 @@ public class FieldGenerator extends AbstractGenerator<FieldGenerator> {
     return it();
   }
 
-  public FieldGenerator $transient() {
+  public FieldGenerator _transient() {
     return modifier(TRANSIENT);
   }
 
-  public FieldGenerator $volatile() {
+  public FieldGenerator _volatile() {
     return modifier(VOLATILE);
   }
 
-  public FieldGenerator $strictfp() {
+  public FieldGenerator _strictfp() {
     return modifier(STRICTFP);
   }
 }

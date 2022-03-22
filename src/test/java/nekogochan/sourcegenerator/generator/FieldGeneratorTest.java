@@ -26,11 +26,11 @@ class FieldGeneratorTest {
   }
 
   @Test
-  void $visibilities() {
+  void _visibilities() {
     assertAll(
-      () -> assertVisibility(FieldGenerator::$private, "private"),
-      () -> assertVisibility(FieldGenerator::$protected, "protected"),
-      () -> assertVisibility(FieldGenerator::$public, "public")
+      () -> assertVisibility(FieldGenerator::_private, "private"),
+      () -> assertVisibility(FieldGenerator::_protected, "protected"),
+      () -> assertVisibility(FieldGenerator::_public, "public")
     );
   }
 
@@ -43,14 +43,14 @@ class FieldGeneratorTest {
   }
 
   @Test
-  void $modifiers() {
+  void _modifiers() {
     assertAll(
       Map.<UnaryOperator<FieldGenerator>, String>of(
-        FieldGenerator::$static, "static",
-        FieldGenerator::$final, "final",
-        FieldGenerator::$transient, "transient",
-        FieldGenerator::$volatile, "volatile",
-        FieldGenerator::$strictfp, "strictfp"
+        FieldGenerator::_static, "static",
+        FieldGenerator::_final, "final",
+        FieldGenerator::_transient, "transient",
+        FieldGenerator::_volatile, "volatile",
+        FieldGenerator::_strictfp, "strictfp"
       ).entrySet().stream()
          .<Executable>map(e -> () -> assertModifier(e.getKey(), e.getValue()))
          .toList()
@@ -73,9 +73,9 @@ class FieldGeneratorTest {
   @Test
   void keywords_order_test() {
     var field = base().init("\"some shit\"")
-                      .$final()
-                      .$static()
-                      .$public();
+                      ._final()
+                      ._static()
+                      ._public();
     assertEquals(
       "public static final String str = \"some shit\";",
       field.generate()

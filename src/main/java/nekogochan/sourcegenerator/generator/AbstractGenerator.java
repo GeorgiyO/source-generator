@@ -45,23 +45,23 @@ public abstract class AbstractGenerator<It extends AbstractGenerator<It>> {
     return it();
   }
 
-  public It $private() {
+  public It _private() {
     return visibility(PRIVATE);
   }
 
-  public It $protected() {
+  public It _protected() {
     return visibility(PROTECTED);
   }
 
-  public It $public() {
+  public It _public() {
     return visibility(PUBLIC);
   }
 
-  public It $static() {
+  public It _static() {
     return modifier(STATIC);
   }
 
-  public It $final() {
+  public It _final() {
     return modifier(FINAL);
   }
 }

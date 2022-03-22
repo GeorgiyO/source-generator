@@ -15,21 +15,21 @@ public abstract class Generator {
 
   protected static final int BASE_OFFSET = 2;
 
-  protected final String $package;
+  protected final String _package;
   protected final String name;
   protected String signature;
   protected final StringJoiner imports = new StringJoiner("\n");
   protected final StringJoiner classCode = new StringJoiner("\n");
   protected StringJoiner templates = new StringJoiner(", ", "<", ">");
 
-  protected Generator(String $package, String signature, String name) {
-    this.$package = $package;
+  protected Generator(String _package, String signature, String name) {
+    this._package = _package;
     this.signature = signature;
     this.name = name;
   }
 
   public String get() {
-    var result = "package %s;\n\n".formatted($package);
+    var result = "package %s;\n\n".formatted(_package);
     if (imports.length() != 0) {
       result += imports + "\n\n";
     }
@@ -55,7 +55,7 @@ public abstract class Generator {
 
   public void write(String folder) throws IOException {
     write(Path.of(folder + "/%s/%s.java".formatted(
-      $package.replaceAll("\\.", "/"),
+      _package.replaceAll("\\.", "/"),
       name)));
   }
 
@@ -86,8 +86,8 @@ public abstract class Generator {
     add(0, "");
   }
 
-  public void addImport(String $import) {
-    imports.add("import " + $import + ";");
+  public void addImport(String _import) {
+    imports.add("import " + _import + ";");
   }
 
   protected void add(int offset, String code) {

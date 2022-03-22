@@ -5,8 +5,8 @@ public class ClassGenerator extends Generator {
 
   private boolean notAbstract = true;
 
-  public ClassGenerator(String $package, String $name) {
-    super($package, "public class", $name);
+  public ClassGenerator(String _package, String _name) {
+    super(_package, "public class", _name);
   }
 
   @Override
